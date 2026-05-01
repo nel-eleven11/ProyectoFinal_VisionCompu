@@ -1,0 +1,11 @@
+opencv-python
+mediapipe
+ultralytics
+numpy
+pandas
+matplotlib
+pyyaml
+jupyter
+ipykernel
+tqdm
+pytest

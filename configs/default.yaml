@@ -1,0 +1,25 @@
+video_path: null
+output_dir: outputs
+chord_dataset: data/chord_shapes.example.json
+
+instrument:
+  instrument_type: guitar
+  tuning: standard
+  max_fret: 24
+
+models:
+  yolo_weights: models/fretboard_yolo.pt
+  yolo_confidence: 0.35
+  max_hands: 1
+
+geometry:
+  # Labels expected from the future YOLO model.
+  fretboard_label: fretboard
+  neck_label: neck
+  string_label: string
+  fret_label: fret
+
+tracking:
+  # These values are starting points for smoothing detections frame by frame.
+  min_chord_duration_s: 0.12
+  max_gap_to_merge_s: 0.15

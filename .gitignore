@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+.venv/
+venv/
+
+data/raw/
+data/processed/
+data/annotations/
+models/*.pt
+models/runs/
+outputs/*
+!outputs/README.md
