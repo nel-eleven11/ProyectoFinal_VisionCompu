@@ -1,0 +1,7 @@
+file,size_bytes,duration_s,fps,frame_count,width,height,source,ground_truth,use_case,notes
+data/139-135737102_medium.mp4,4050068,13.76,25.0,344,1280,720,internet,unknown,robustness_test,
+data/2662-161442863_medium.mp4,5415693,15.64,25.0,391,1280,720,internet,unknown,robustness_test,
+data/35867-408654189.mp4,16276204,26.56,29.97,796,1920,1080,internet,unknown,robustness_test,
+data/7240-199190963_medium.mp4,2570496,13.36,25.0,334,1280,720,internet,unknown,robustness_test,
+data/81950-576572872_medium.mp4,5080320,16.383,29.97,491,1280,720,internet,unknown,robustness_test,
+data/Video Con blurr.mp4,15263923,16.16,25.0,404,1920,1080,internet,unknown,robustness_test,

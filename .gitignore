@@ -9,7 +9,13 @@ venv/
 data/raw/
 data/processed/
 data/annotations/
+data/hf_guitar_chords/
+data/hf_guitar_chords_yolo/
+data/video_frames/
+data/*.mp4
 models/*.pt
 models/runs/
+runs/
+*.pt
 outputs/*
 !outputs/README.md
