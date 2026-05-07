@@ -42,6 +42,53 @@ notebooks/01_skeleton_reconocimiento_acordes.ipynb
 
 Ese notebook documenta el enfoque, conecta el proyecto con lo visto en clase sobre video/deteccion/tracking y deja celdas listas para cuando existan videos y pesos YOLO.
 
+## Datos
+
+La estrategia de datos esta documentada en `docs/data_strategy.md`.
+
+Descargar el dataset de acordes de Hugging Face:
+
+```bash
+python scripts/download_hf_guitar_chords.py
+python scripts/prepare_yolo_classification_split.py
+```
+
+Crear un manifest de los videos descargados en `data/`:
+
+```bash
+python scripts/build_video_manifest.py --video-dir data --out data/video_manifest.csv
+```
+
+Extraer frames para probar el modelo sobre videos:
+
+```bash
+python scripts/extract_video_frames.py --video-dir data --out data/video_frames
+```
+
+Entrenar un baseline YOLO de clasificacion:
+
+```bash
+yolo classify train model=yolo11n-cls.pt data=data/hf_guitar_chords_yolo epochs=20 imgsz=224
+```
+
+En Windows, si PowerShell dice que `yolo` no existe, usar la ruta completa:
+
+```powershell
+& "$env:LOCALAPPDATA\Python\pythoncore-3.14-64\Scripts\yolo.exe" classify train model=yolo11n-cls.pt data=data/hf_guitar_chords_yolo epochs=20 imgsz=224
+```
+
+Generar videos anotados con el acorde predicho:
+
+```bash
+python scripts/annotate_videos_yolo.py --model runs/classify/chord_cls_yolo/weights/best.pt --video-dir data --out-dir outputs/annotated_videos
+```
+
+Ver una demo en pantalla mientras YOLO predice:
+
+```powershell
+python scripts\annotate_videos_yolo.py --model runs\classify\chord_cls_yolo\weights\best.pt --video-path data\139-135737102_medium.mp4 --out-dir outputs\annotated_videos --csv-dir outputs\video_predictions --predict-every 5 --show --display-scale 0.8
+```
+
 ## Instalacion sugerida
 
 ```bash
